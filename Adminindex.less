@@ -1,0 +1,56 @@
+// 尼好数据库运维管理平台 Admin CSS说明
+.w-radio {
+  margin-left: -1px;
+  .w-radio-text {
+    margin: 0; 
+    height: 30px;
+    padding: 0 25px; 
+    // padding: 1px; 上下左右
+    // padding: 1px 1px; 上下 左右
+    // padding: 1px 1px 1px; 上 左右 下
+    // padding: 1px 1px 1px 1px; 上 右 下 左 顺时针
+    display: inline-flex; 
+    // display: flex; 不会让容器本身取消它的块装的属性，但它的子元素会变成行内块的的属性
+    // display: inline-flex; （不管是行内元素还是块级元素），将会变为弹性容器，它的宽高都将可以被设置，并且该容器整体对外表现为一个行内块元素
+    align-items: center;
+    box-shadow: 0 0 0 0 rgba(19, 124, 189, 0), 0 0 0 0 rgba(19, 124, 189, 0), inset 0 0 0 1px rgba(16, 22, 26, 0.15), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+    // box-shadow: offset-x offset-y blur spread color position;
+    // 　　        offset-x用于声明阴影的水平偏移，就是阴影在X轴上的位置。当值为正数，阴影就位于元素右侧，若值为负数，阴影位于元素的左侧。
+    //            offset-y用于声明阴影的垂直偏移，就是阴影在Y轴上的位置。当值为正数，阴影就位于元素下侧，若值为负数，阴影位于元素的上侧。
+    //            blur表示阴影的模糊半径
+    //            spread表示阴影的大小。当值为正数，阴影会向四周扩展。若值为负数，阴影会收缩，小于元素尺寸。默认值0会保持阴影和元素尺寸一致。
+    //            position表示阴影的位置。默认为外部阴影，想使用内部阴影需要声明inset在最前面最后都可以。
+    // inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+    // 该CSS样式为在元素周围插入一个1像素宽度的透明边框，颜色为rgba(16, 22, 26, 0.15)。rgba中的前三个数字分别表示红、绿和蓝的色值，最后一个数字表示透明度。
+  }
+  &:first-child .w-radio-text {
+    border-radius: 15px 0 0 15px; 
+  }
+  &:last-child .w-radio-text {
+    border-radius: 0 15px 15px 0;
+  }
+  input:checked+.w-radio-text {
+    background: #008ef0;
+    color: #fff;
+    border-color: #008ef0;
+  }
+}
+.w-radio {
+  display: inline-flex;
+  align-items: center;
+  input {
+    width: 0;
+    height: 0;
+    border: 0;
+    position: absolute;
+    &:hover,
+    // 选择鼠标指针浮动在其上的元素，设置其样式
+    &:focus {
+      // 
+      box-shadow: none;
+    }
+    &:checked {
+      border: 0;
+    }
+  }
+}
