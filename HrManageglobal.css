@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  /* 
+  -webkit-font-smoothing它有三个属性值：
+  用来控制字体渲染时的平滑效果，使字体看起来更加清晰和舒服，在 Mac OS 和 ios 中表现比较明显，在 windows 中表现不明显
+  none：对低像素的文本比较好
+  subpixel-antialiased：默认值
+  antialiased：抗锯齿很好,字体看起来舒服，清  
+  */
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-size: 14px;
+}
+
+body, html, #root{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+html, main {
+  scroll-behavior: smooth;
+  /* 让页面平滑滚动 */
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  /* 将所有盒子模型设置为border-box */
+}
+
+#root .w-empty {
+  padding: 70px 0;
+}
+
+.card{
+  /* overflow属性用于控制内容溢出元素框时显示的方式。 */
+  overflow-y: 'hidden'; 
+  /* 内容会被修剪，并且其余内容是不可见的。 */
+  overflow-y: 'scroll';
+  /* 	内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。 */
+  overflow-y: 'auto';
+  /* 	如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。 */
+}
+div{
+  flex: 1;
+  /* 
+  flex:1实际代表的是三个属性的简写
+    flex-grow是用来增大盒子的，比如，当父盒子的宽度大于子盒子的宽度，父盒子的剩余空间可以利用flex-grow来设置子盒子增大的占比
+    flex-shrink用来设置子盒子超过父盒子的宽度后，超出部分进行缩小的取值比例
+    flex-basis是用来设置盒子的基准宽度，并且basis和width同时存在basis会把width干掉
+    所以flex：1；的逻辑就是用flex-basis把width干掉，然后再用flex-grow和flex-shrink增大的增大缩小的缩小，达成最终的效果。
+  */
+  position: sticky;
+  bottom: 0;
+  z-index: 9;
+  /* 
+  设置了position:sticky的元素的效果完全受制于父级元素。
+    父级元素不能有任何overflow:visible以外的overflow设置。即使是scroll或者auto也不行。
+    父元素的高度不能低于sticky元素的高度
+    同一父容器中的sticky元素，如果定位置相等，则会发生重叠，
+    sticky元素如果不属于相同父元素，但是他們的父元素正好紧密相连，则会挤开原来的元素，形成依次占位的效果。
+    必须制定top,left,bottom,right四个中的至少一个，否则其行为与相对定位相同，并且top和bottom同时设置时，top的优先级高；left和right同时设置时，left的优先级高。
+  */
+}
+
